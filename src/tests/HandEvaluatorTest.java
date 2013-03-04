@@ -84,16 +84,32 @@ public class HandEvaluatorTest {
 		assertEquals("it went wrong", rank, 6);
 			
 	}
-
+	
 	@Test
 	public void test8() {
 		
-		TestHand hand = new TestHand("newstraight");
+		TestHand hand = new TestHand("straight");
 		
-		int rank = HandEvaluator.assessHand(hand);
+		TestHand otherhand = new TestHand("straight");
 		
-		assertEquals("it went wrong", rank, 4);
-			
+		HandEvaluator.assessHand(otherhand);
+		
+		assertEquals("wrong frist card", hand.get(0).getValue(), otherhand.get(0).getValue());
+		assertEquals("wrong first card suite", hand.get(0).getSuite(), otherhand.get(0).getSuite()); 
+		
+		assertEquals("wrong second card", hand.get(1).getValue(), otherhand.get(1).getValue());
+		assertEquals("wrong second card suite", hand.get(1).getSuite(), otherhand.get(1).getSuite());
+		
+		assertEquals("wrong third card", hand.get(2).getValue(), otherhand.get(2).getValue());
+		assertEquals("wrong third card suite", hand.get(2).getSuite(), otherhand.get(2).getSuite());
+		
+		assertEquals("wrong fourth card", hand.get(3).getValue(), otherhand.get(3).getValue());
+		assertEquals("wrong fourth card suite", hand.get(3).getSuite(), otherhand.get(3).getSuite());
+	
+		assertEquals("wrong fifth card", hand.get(4).getValue(), otherhand.get(4).getValue());
+		assertEquals("wrong fifth card suite", hand.get(4).getSuite(), otherhand.get(4).getSuite());
 	}
+
+	
 
 }
