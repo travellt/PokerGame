@@ -23,11 +23,18 @@ public class DealerAI {
 
 	public Vector<Card> whichCardsShouldISwap() {
 		
+		if (currentrank >= 4)
+			return swapcardsnocards;
+		
+		
 		Double bestrankdiffonecard = rankDiffSwapOneCard();
 		
 		Double bestrankdifftwocards = rankDiffSwapTwoCards();
 		
 		Double bestrankdiffthreecards = rankDiffSwapThreeCards();
+		
+		
+		
 		
 		
 		if ((bestrankdiffonecard > bestrankdifftwocards) && (bestrankdiffonecard > bestrankdiffthreecards))
@@ -188,8 +195,8 @@ public class DealerAI {
 			
 		Double rankdiffifswapped = 0.0;
 		
+		SpecialDeck tempdeck = new SpecialDeck(hand);
 			for (int j = 0; j < 47 ; j++){
-				SpecialDeck tempdeck = new SpecialDeck(hand);
 				Hand temphand = new Hand();
 				for (int k = 0; k < hand.size(); k++){
 					if (k == cardi)
