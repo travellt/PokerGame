@@ -30,7 +30,7 @@ public class Game {
         players.add(dealer);
         
         
-        for (int y = 1; y < x;y++)
+        for (int y = 1; y < x; y++)
         {
         PokerGamePerson player = personFactory.returnPerson("player");
         players.add(player);
@@ -40,11 +40,9 @@ public class Game {
         
         //deals 5 cards to player and dealer
         
-        for (int z=0; z < 5;z++)
-        {
-            for (int y = players.size()-1;y >= 0;y--)
-            {
-            players.get(y).takeCard(players.get(0).dealACard());
+        for (int z = 0; z < 5; z++){
+        	for (int y = players.size()-1 ;y >= 0; y--){
+        		players.get(y).takeCard(players.get(0).dealACard());
             }
         }
     }
@@ -52,21 +50,15 @@ public class Game {
     public void run(){
         
        if (HandEvaluator.assessHand(players.get(0).getHand()) > HandEvaluator.assessHand(players.get(1).getHand()))
-       {
-       System.out.println("The Dealer is winning");}
+    	   System.out.println("The Dealer is winning");
        else if (HandEvaluator.assessHand(players.get(0).getHand()) < HandEvaluator.assessHand(players.get(1).getHand()))
-       {
-       System.out.println("You are winning");
-       }
-       else HandEvaluator.drawnHand(
-                                    HandEvaluator.assessHand(players.get(0).getHand()), 
-                                    players.get(0), 
-                                    players.get(1)); 
+    	   System.out.println("You are winning");
+       else HandEvaluator.drawnHand(HandEvaluator.assessHand(players.get(0).getHand()), players.get(0), players.get(1)); 
              
-        System.out.println();
+       System.out.println();
         
-        for (int x = players.size()-1; x >= 1; x--){
-        players.get(x).evaluateTheHand(players.get(x).getHand());
+       for (int x = players.size()-1; x >= 1; x--){
+    	   players.get(x).evaluateTheHand(players.get(x).getHand());
         int number = players.get(x).getHand().size();
         if (number == 5) continue;
         else {

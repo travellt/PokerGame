@@ -9,9 +9,9 @@ public class DealerAI {
 	 Vector<Card> swapcardstwocards;
 	 Vector<Card> swapcardsthreecards;
 	 Vector<Card> swapcardsnocards = new Vector<Card>();
-	int currentrank;
+	 int currentrank;
 	
-        public DealerAI(Hand myhand) {  
+     public DealerAI(Hand myhand) {  
 		this.hand = new Hand(); //create new Hand so doesn't alter it
 		for (int k = 0; k < myhand.size(); k++)  
 			hand.add(myhand.get(k));
